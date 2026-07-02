@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multani Wood Workers | Premium Furniture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="preloader"><div class="loader-wood"></div><p>MULTANI WOOD WORKERS</p></div>
+
+<div class="cursor-glow"></div>
+
+<header id="header">
+  <div class="nav-container">
+    <div class="logo">
+      <span class="logo-icon">🪵</span>
+      <div>
+        <h1>Multani Wood Workers</h1>
+        <p>by PAPPAL</p>
+      </div>
+    </div>
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery" class="nav-filter" data-filter="doors">Doors</a>
+      <a href="#gallery" class="nav-filter" data-filter="windows">Windows</a>
+      <a href="#gallery" class="nav-filter" data-filter="kitchen">Kitchen</a>
+      <a href="#gallery" class="nav-filter" data-filter="bed">Beds</a>
+      <a href="#gallery" class="nav-filter" data-filter="handwashing">Wash Basin</a>
+      <a href="#gallery" class="nav-filter" data-filter="ledpanel">LED Panels</a>
+      <a href="#gallery" class="nav-filter" data-filter="all">Gallery</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content" data-aos>
+    <span class="hero-tag">Est. Craftsmanship • Karnal, Haryana</span>
+    <h1 class="hero-title">Turning <span class="highlight">Wood</span> Into <span class="highlight">Art</span></h1>
+    <p class="hero-sub">Handcrafted Doors, Windows, Kitchens, Beds & More — Designed by <b>PAPPAL</b>, Multani Wood Workers</p>
+    <div class="hero-buttons">
+      <a href="#gallery" class="btn btn-primary">Explore Gallery</a>
+      <a href="#contact" class="btn btn-outline">Get Free Quote</a>
+    </div>
+  </div>
+  <div class="scroll-down"><span></span>Scroll</div>
+  <div class="floating-3d f1">🚪</div>
+  <div class="floating-3d f2">🛏️</div>
+  <div class="floating-3d f3">🪟</div>
+  <div class="floating-3d f4">💡</div>
+</section>
+
+<section class="marquee">
+  <div class="marquee-track">
+    <span>DOORS ✦ WINDOWS ✦ KITCHEN ✦ BEDS ✦ WASH BASIN ✦ LED PANELS ✦ CUSTOM FURNITURE ✦ </span>
+    <span>DOORS ✦ WINDOWS ✦ KITCHEN ✦ BEDS ✦ WASH BASIN ✦ LED PANELS ✦ CUSTOM FURNITURE ✦ </span>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-grid">
+    <div class="about-img-wrap" data-aos>
+      <div class="about-img-3d">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/903138861b248ecc68a66ecd55bebfff3cd04874.jpg" alt="Master Craftsman">
+      </div>
+    </div>
+    <div class="about-text" data-aos>
+      <span class="section-tag">Who We Are</span>
+      <h2>Meet <span class="highlight">PAPPAL</span> — Founder & Master Craftsman</h2>
+      <p>Multani Wood Workers has been shaping raw timber into elegant, long-lasting furniture for homes across Haryana and Punjab. Every door, window, kitchen unit and bed is hand-finished with precision, blending traditional carpentry with modern design.</p>
+      <div class="stats-row">
+        <div class="stat"><h3 data-count="15">0</h3><p>Years Experience</p></div>
+        <div class="stat"><h3 data-count="500">0</h3><p>Happy Clients</p></div>
+        <div class="stat"><h3 data-count="1000">0</h3><p>Projects Done</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+  <div class="section-head" data-aos>
+    <span class="section-tag">Our Craft</span>
+    <h2>Furniture <span class="highlight">Categories</span></h2>
+    <p>Click any category to browse 100+ handcrafted designs. Click a photo to view full details & price.</p>
+  </div>
+
+  <div class="filter-bar" data-aos>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="doors">Doors</button>
+    <button class="filter-btn" data-filter="windows">Windows</button>
+    <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+    <button class="filter-btn" data-filter="bed">Beds</button>
+    <button class="filter-btn" data-filter="handwashing">Wash Basin</button>
+    <button class="filter-btn" data-filter="ledpanel">LED Panels</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div class="load-more-wrap"><button id="loadMoreBtn" class="btn btn-primary">Load More Designs</button></div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="section-head" data-aos>
+    <span class="section-tag">Client Words</span>
+    <h2>What Our <span class="highlight">Customers</span> Say</h2>
+  </div>
+  <div class="testi-track" data-aos>
+    <div class="testi-card"><p>"Bahut hi khoobsurat kaam kiya PAPPAL ji ne, hamara kitchen bilkul designer look aa gaya!"</p><h4>— Rakesh, Karnal</h4></div>
+    <div class="testi-card"><p>"Main door itna solid aur beautiful bana ki sab ghar aa ke pooch rahe hain kis se banwaya."</p><h4>— Simran, Ludhiana</h4></div>
+    <div class="testi-card"><p>"Bed aur wardrobe dono time pe aur perfect finishing ke sath mile. Highly recommended!"</p><h4>— Vikas, Panipat</h4></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-grid">
+    <div class="contact-info" data-aos>
+      <span class="section-tag">Get In Touch</span>
+      <h2>Contact <span class="highlight">Multani Wood Workers</span></h2>
+      <p>Have a design in mind? Reach out to PAPPAL directly for a free consultation and quote.</p>
+      <ul class="contact-list">
+        <li><span class="icon">📞</span> <a href="tel:+917357820294">+91 73578 20294</a></li>
+        <li><span class="icon">📞</span> <a href="tel:+917015493951">+91 70154 93951</a></li>
+        <li><span class="icon">✉️</span> <a href="mailto:rzharyanvi@gmail.com">rzharyanvi@gmail.com</a></li>
+        <li><span class="icon">📍</span> VPO Bastali, District Karnal, Haryana, India</li>
+      </ul>
+      <div class="social-row">
+        <a href="tel:+917357820294" class="social-btn">Call Now</a>
+        <a href="https://wa.me/917357820294" class="social-btn wa">WhatsApp</a>
+      </div>
+    </div>
+    <form class="contact-form" data-aos id="contactForm" action="https://formspree.io/f/rzharyanvi@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Website Contact Form Enquiry">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <select name="category">
+        <option>Select Category</option>
+        <option>Doors</option><option>Windows</option><option>Kitchen</option>
+        <option>Bed</option><option>Wash Basin</option><option>LED Panel</option>
+      </select>
+      <textarea name="message" placeholder="Tell us about your requirement" rows="4"></textarea>
+      <button type="submit" class="btn btn-primary">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Multani Wood Workers</h3>
+      <p>Premium handcrafted wooden furniture by PAPPAL. VPO Bastali, District Karnal, Haryana, India.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>+91 73578 20294</p><p>+91 70154 93951</p><p>rzharyanvi@gmail.com</p>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 Multani Wood Workers. All Rights Reserved. Crafted with ❤️ by PAPPAL's team.</p>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-img-wrap"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-info">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div class="modal-price" id="modalPrice"></div>
+      <button type="button" id="enquireNowBtn" class="btn btn-primary">Enquire Now</button>
+
+      <div class="enquiry-form-wrap" id="enquiryFormWrap">
+        <div class="enquiry-fields">
+          <form id="enquiryForm" action="https://formspree.io/f/rzharyanvi@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Enquiry">
+            <input type="hidden" name="item" value="">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" placeholder="Mobile Number" required>
+            <textarea name="message" placeholder="Aapki requirement bataiye (size, color, quantity etc.)" rows="3"></textarea>
+            <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+          </form>
+        </div>
+        <p id="enquirySuccess" class="enquiry-success">Dhanyawad! Aapki enquiry PAPPAL ji ko bhej di gayi hai. Wo jald hi aapse contact karenge.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/917357820294" class="whatsapp-float">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>
