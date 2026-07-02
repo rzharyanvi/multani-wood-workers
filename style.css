@@ -151,6 +151,72 @@ section{padding:100px 20px;}
   .about-grid,.contact-grid{grid-template-columns:1fr;}
   nav#navMenu{position:fixed;top:70px;right:-100%;background:var(--wood-dark);flex-direction:column;width:260px;height:100vh;padding:30px;transition:right .4s;}
   nav#navMenu.active{right:0;}
+  /* ---------- Enquiry Form (inside item detail modal) ---------- */
+.enquiry-form-wrap{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .5s ease, opacity .4s ease, margin-top .4s ease;
+  margin-top:0;
+}
+.enquiry-form-wrap.open{
+  max-height:500px;
+  opacity:1;
+  margin-top:20px;
+}
+.enquiry-fields form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  background:var(--cream);
+  border:1px solid rgba(107,66,38,0.15);
+  border-radius:16px;
+  padding:22px;
+}
+.enquiry-fields input,
+.enquiry-fields textarea{
+  width:100%;
+  padding:13px 16px;
+  border:1.5px solid #ddd0bd;
+  border-radius:10px;
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  color:var(--text);
+  background:var(--white);
+  transition:border-color .3s, box-shadow .3s;
+}
+.enquiry-fields input:focus,
+.enquiry-fields textarea:focus{
+  outline:none;
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(212,162,76,.2);
+}
+.enquiry-fields input::placeholder,
+.enquiry-fields textarea::placeholder{
+  color:#a8987f;
+}
+.enquiry-fields textarea{
+  resize:vertical;
+  min-height:80px;
+}
+.enquiry-fields button{
+  width:100%;
+  margin-top:4px;
+}
+.enquiry-success{
+  display:none;
+  background:#eaf7ee;
+  border:1px solid #8fd19e;
+  color:#256d3b;
+  padding:16px 18px;
+  border-radius:12px;
+  font-size:14px;
+  line-height:1.5;
+  margin-top:16px;
+}
+#enquireNowBtn{
+  width:100%;
+}
   .hamburger{display:flex;}
   .modal-box{grid-template-columns:1fr;overflow-y:auto;}
 }
