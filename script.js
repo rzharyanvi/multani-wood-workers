@@ -51,28 +51,74 @@ const statsIO = new IntersectionObserver((entries)=>{
 }, {threshold:0.4});
 if(document.querySelector('.stats-row')) statsIO.observe(document.querySelector('.stats-row'));
 
-// ---------- Gallery Data ----------
-const catInfo = {
-  doors: {label:'Doors', base:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/903138861b248ecc68a66ecd55bebfff3cd04874.jpg', alt:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/299798ff9ac5b80c80b7d4caacdd8365f205a7d8.jpg', alt2:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1a35f579ac3f4df94558cad178f5507cb392ea44.jpg', names:['Royal Teak Main Door','Carved Panel Door','Modern Vertical Grain Door','Classic Floral Door','Solid Sal Wood Door','Designer Entrance Door'], desc:'Handcrafted from premium seasoned wood with termite-resistant polish, custom carving and brass fittings available on request.', priceRange:[9000,32000]},
-  windows: {label:'Windows', base:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/28c0c3536deda1a7c068f0b21f572449c1b2f6e9.jpg', alt:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c4b44e5d6c570d5cabe7eaf5275bb99f80026e5f.jpg', alt2:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1bb24094fa5fe0d8224c9f4cd71e69d0db1b29ce.jpg', names:['Arched Wooden Window','Casement Window Set','Traditional Grill Window','Louvered Wood Window','Bay Window Design','Panel Frame Window'], desc:'Weather and water resistant wooden windows, custom sizes with double glazing options, easy open-close hardware.', priceRange:[5000,18000]},
-  kitchen: {label:'Kitchen', base:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a2f76a67c31f023e7c7f7d1b5e8312c1f2433ca2.jpg', alt:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/be214554e478ee69bd72c28158adf0d0133c16f1.jpg', alt2:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ad491551f14f445b7de43a988ca4262382074252.jpg', names:['Modular Oak Kitchen','Island Kitchen Cabinet','L-Shape Kitchen Set','Rustic Wood Kitchen','Premium Cabinet Kitchen','Compact Kitchen Unit'], desc:'Modular kitchen cabinets built with moisture-resistant plywood, soft-close hinges, and choice of laminate or veneer finish.', priceRange:[45000,180000]},
-  bed: {label:'Beds', base:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7e6c7ac3ee27a766f0ad804a01fd94869389f9ec.jpg', alt:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/880adbf38832aee3c258c57f22559d2c8340c786.jpg', alt2:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/31f3786d2daf527a4df9d3d5a073d98ca4089b43.jpg', names:['King Size Platform Bed','Storage Double Bed','Carved Headboard Bed','Minimalist Wood Bed','Luxury Queen Bed','Rustic Solid Wood Bed'], desc:'Solid wood beds with under-storage options, hand-finished headboards and matching bedside tables available.', priceRange:[15000,55000]},
-  handwashing: {label:'Wash Basin', base:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/466baa8a402c44b2abe77f71e23bac729bf2f1fb.jpg', alt:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f8137e076fbc79af345a844f36ddf4694ebfd49.jpg', alt2:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fa9d11b917774bd2182ec667968f4b8de82feea5.jpg', names:['Wall Mounted Basin Cabinet','Mirror Basin Vanity','Compact Wash Unit','Storage Basin Cabinet','Premium Vanity Set','Double Drawer Wash Cabinet'], desc:'Waterproof coated wooden basin cabinets with mirror and ample storage, designed for daily durability.', priceRange:[6000,22000]},
-  ledpanel: {label:'LED Panels', base:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2d4d0b6fed99dbc19702a293b64ac6308dcec359.jpg', alt:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4840c4798e9fb1f2f9a50ec7527dc7d85c7f11b8.jpg', alt2:'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0bcdcf415f5128aa894b8c80976e4af3546409fc.jpg', names:['Acoustic Slat LED Panel','TV Wall LED Panel','Ambient Wood LED Wall','Designer Wall Unit','Backlit Slat Panel','Modern Media Wall'], desc:'Wooden slat panels with integrated warm LED lighting, perfect for TV walls and living room accents.', priceRange:[700,1500]},
+// ============================================================
+// PHOTO DATA — Yahan se photos add/edit/delete karo
+// Har category ke andar ek photo ki entry hoti hai:
+// { img: "photo ka link", title: "naam", desc: "details", price: number }
+//
+// NAYI PHOTO ADD KARNE KE LIYE:
+// 1. Photo ko GitHub repo ke "images" folder mein upload karo
+// 2. Us photo ka link copy karo (GitHub par photo par click karke "Download" 
+//    ya "Raw" button se link milega)
+// 3. Neeche jis category mein daalni hai, wahan ek naya line jodo (comma se separate)
+//
+// PHOTO DELETE KARNE KE LIYE:
+// Us photo ki poori line { ... }, delete kar do
+//
+// PHOTO/PRICE/NAAM CHANGE KARNE KE LIYE:
+// Us line mein img, title, desc ya price value badal do
+// ============================================================
+
+const photoData = {
+  doors: [
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/903138861b248ecc68a66ecd55bebfff3cd04874.jpg", title:"Royal Teak Main Door", desc:"Handcrafted teak wood door with floral carving, termite-resistant polish.", price:32000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/299798ff9ac5b80c80b7d4caacdd8365f205a7d8.jpg", title:"Carved Panel Door", desc:"Traditional carved panel door with brass fittings.", price:28000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1a35f579ac3f4df94558cad178f5507cb392ea44.jpg", title:"Modern Vertical Grain Door", desc:"Sleek modern door with vertical wood grain finish.", price:18000},
+  ],
+  windows: [
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/28c0c3536deda1a7c068f0b21f572449c1b2f6e9.jpg", title:"Arched Wooden Window", desc:"Traditional arched window with open shutters, weather resistant.", price:15000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c4b44e5d6c570d5cabe7eaf5275bb99f80026e5f.jpg", title:"Casement Window Set", desc:"Custom size casement windows with double glazing option.", price:12000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1bb24094fa5fe0d8224c9f4cd71e69d0db1b29ce.jpg", title:"Traditional Grill Window", desc:"Polished wood window with 4-door design and grill.", price:10000},
+  ],
+  kitchen: [
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a2f76a67c31f023e7c7f7d1b5e8312c1f2433ca2.jpg", title:"Rustic Oak Kitchen with Island", desc:"Dark oak cabinetry with central island, marble countertop.", price:180000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/be214554e478ee69bd72c28158adf0d0133c16f1.jpg", title:"Beige Wood Kitchen Set", desc:"Glass-front upper cabinets, quartz countertop, premium finish.", price:150000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ad491551f14f445b7de43a988ca4262382074252.jpg", title:"Warm Tone Wood Kitchen", desc:"Modular kitchen with moisture-resistant plywood and soft-close hinges.", price:120000},
+  ],
+  bed: [
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7e6c7ac3ee27a766f0ad804a01fd94869389f9ec.jpg", title:"Cherry Wood Platform Bed", desc:"Modern platform bed with matching nightstands.", price:45000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/880adbf38832aee3c258c57f22559d2c8340c786.jpg", title:"Luxury Storage Bed", desc:"Double bed with under-storage and carved headboard.", price:38000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/31f3786d2daf527a4df9d3d5a073d98ca4089b43.jpg", title:"Rustic Solid Wood Bed", desc:"Minimalist solid wood platform bed, king size available.", price:42000},
+  ],
+  handwashing: [
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/466baa8a402c44b2abe77f71e23bac729bf2f1fb.jpg", title:"Wall Mounted Basin Cabinet", desc:"Wooden vanity cabinet with mirror and storage shelves.", price:15000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f8137e076fbc79af345a844f36ddf4694ebfd49.jpg", title:"Mirror Basin Vanity", desc:"Ceramic sink with matching wall-mounted mirror cabinet.", price:12000},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fa9d11b917774bd2182ec667968f4b8de82feea5.jpg", title:"Double Drawer Wash Cabinet", desc:"Wall-mounted vanity with two drawers, chrome faucet.", price:18000},
+  ],
+  ledpanel: [
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2d4d0b6fed99dbc19702a293b64ac6308dcec359.jpg", title:"Acoustic Slat TV Panel", desc:"Wooden acoustic panels with marble feature wall and LED edges.", price:900},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4840c4798e9fb1f2f9a50ec7527dc7d85c7f11b8.jpg", title:"Ambient Wood LED Wall", desc:"Slat wall panels illuminated with warm LED lighting.", price:750},
+    {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0bcdcf415f5128aa894b8c80976e4af3546409fc.jpg", title:"Modern Media Wall Panel", desc:"Wooden TV wall panel with shelves and decor space.", price:700},
+  ],
 };
+
+const catLabels = {doors:'Doors', windows:'Windows', kitchen:'Kitchen', bed:'Beds', handwashing:'Wash Basin', ledpanel:'LED Panels'};
 
 let allItems = [];
 let idCounter = 0;
-Object.keys(catInfo).forEach(key=>{
-  const c = catInfo[key];
-  const imgs = [c.base, c.alt, c.alt2];
-  for(let i=1;i<=105;i++){
-    const img = imgs[i % imgs.length];
-    const name = c.names[i % c.names.length] + ' - Design #' + i;
-    const min = c.priceRange[0], max = c.priceRange[1];
-    const price = Math.floor(min + ((max-min) * ((i*37)%100))/100);
-    allItems.push({id:idCounter++, cat:key, catLabel:c.label, img:img, title:name, desc:c.desc, price:price, unit: key==='ledpanel' ? '/sq.ft' : ''});
-  }
+Object.keys(photoData).forEach(key=>{
+  photoData[key].forEach(p=>{
+    allItems.push({
+      id: idCounter++,
+      cat: key,
+      catLabel: catLabels[key],
+      img: p.img,
+      title: p.title,
+      desc: p.desc,
+      price: p.price,
+      unit: key==='ledpanel' ? '/sq.ft' : ''
+    });
+  });
 });
 
 let visibleCount = 24;
