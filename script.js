@@ -89,6 +89,7 @@ const photoData = {
     {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7e6c7ac3ee27a766f0ad804a01fd94869389f9ec.jpg", title:"Cherry Wood Platform Bed", desc:"Modern platform bed with matching nightstands.", price:45000},
     {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/880adbf38832aee3c258c57f22559d2c8340c786.jpg", title:"Luxury Storage Bed", desc:"Double bed with under-storage and carved headboard.", price:38000},
     {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/31f3786d2daf527a4df9d3d5a073d98ca4089b43.jpg", title:"Rustic Solid Wood Bed", desc:"Minimalist solid wood platform bed, king size available.", price:42000},
+    {img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRRjwf1QvGJKzGzTkYwr9uuUANAXgXNte5p_H8EO2dF-KnCmkL38Z2kbkG&s=10", title:"Simple Bed",  desc:"Single Moderan Bed of Wooden in Excelent Quality.", price:28000},
   ],
   handwashing: [
     {img:"https://pplx-res.cloudinary.com/image/upload/pplx_search_images/466baa8a402c44b2abe77f71e23bac729bf2f1fb.jpg", title:"Wall Mounted Basin Cabinet", desc:"Wooden vanity cabinet with mirror and storage shelves.", price:15000},
